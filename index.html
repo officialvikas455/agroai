@@ -1,0 +1,805 @@
+
+        }
+            color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .logo::after {
+            content: '🌱';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .header-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-text p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            margin-left: auto;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .language-select {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .language-select:focus {
+            outline: none;
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .voice-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .voice-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .voice-btn.active {
+            background: var(--danger);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+            transform: scale(1.02);
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 6px 20px rgba(5,150,105,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(5,150,105,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary);
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Chat Styles */
+        .chat-container {
+            height: 400px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            border: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background: rgba(5,150,105,0.1);
+            border-radius: 10px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 1rem;
+            animation: messageSlide 0.4s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 1rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 500;
+            line-height: 1.5;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .message-bubble.user {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-bottom-right-radius: 8px;
+        }
+
+        .message-bubble.bot {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 8px;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(5,150,105,0.1);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,250,252,0.9));
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            box-shadow: 0 15px 40px rgba(5,150,105,0.2);
+        }
+
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: 'Poppins', monospace;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Recommendations */
+        .recommendations {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .recommendation-item {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,255,251,0.9));
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recommendation-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .recommendation-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .recommendation-item:hover {
+            transform: translateX(8px);
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(5,150,105,0.15);
+        }
+
+        .recommendation-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .recommendation-text {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .recommendation-badge {
+            background: var(--primary);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Image Upload Area */
+        .image-upload-area {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+
+        .image-upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(5,150,105,0.05);
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 12px;
+            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Loading State */
+        .loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Status Indicators */
+        .status-indicators {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .language-selector {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 1.5rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="floating-elements" id="floatingElements"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">JH</div>
+                <div class="header-text">
+                    <h1>Government of Jharkhand</h1>
+                    <p><i class="fas fa-rocket"></i> Agri-AI Farmer Assistant — SIH 2024 Prototype</p>
+                </div>
+                <div class="language-selector">
+                    <select class="language-select" id="languageSelect">
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="en">English</option>
+                        <option value="mag">Magahi</option>
+                        <option value="bn">বাংলা (Bengali)</option>
+                    </select>
+                    <button class="voice-btn" id="voiceBtn">
+                        <i class="fas fa-microphone"></i> Voice
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Status Indicators -->
+        <div class="status-indicators">
+            <div class="status-item">
+                <div class="status-dot"></div>
+                <span><i class="fas fa-wifi"></i> Online &amp; Ready</span>
+            </div>
+            <div class="status-item">
+                <span><i class="fas fa-mobile-alt"></i> Mobile Optimized</span>
+            </div>
+            <div class="status-item">
+                <span><i class="fas fa-robot"></i> AI-Powered</span>
+            </div>
+            <div class="status-item">
+                <span><i class="fas fa-database"></i> Low Data Mode</span>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Sensor Input Card -->
+                <div class="card">
+                    <h3 class="card-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Location &amp; Sensor Data
+                    </h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">📍 Latitude</label>
+                            <input type="text" class="form-input" id="latitude" placeholder="e.g., 23.6108">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">📍 Longitude</label>
+                            <input type="text" class="form-input" id="longitude" placeholder="e.g., 85.2799">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">🧪 Soil pH</label>
+                            <input type="text" class="form-input" id="soilPh" placeholder="Auto-detect or enter">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">💧 Moisture %</label>
+                            <input type="text" class="form-input" id="moisture" placeholder="Auto-detect or enter">
+                        </div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button class="btn btn-primary" id="fetchBtn">
+                            <i class="fas fa-satellite"></i>
+                            <span class="btn-text">Fetch Real Data</span>
+                        </button>
+                        <button class="btn btn-secondary" id="clearBtn">
+                            <i class="fas fa-trash"></i>
+                            Clear All
+                        </button>
+                    </div>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.875rem; color: #64748b;">
+                        <i class="fas fa-info-circle"></i>
+                        Connects to SoilGrids, Bhuvan satellite, and IoT sensors for real-time data
+                    </p>
+                </div>
+
+                <!-- Chat Interface -->
+                <div class="card">
+                    <h3 class="card-title">
+                        <i class="fas fa-comments"></i>
+                        AI Assistant Chat
+                    </h3>
+                    
+                    <div class="chat-container" id="chatContainer">
+                        <div class="chat-message bot">
+                            <div class="message-bubble bot">
+                                <div>🌱 नमस्ते! मैं आपकी खेती सहायक हूँ — अपने खेत के बारे में बताइए या छवि अपलोड करें।</div>
+                                <div class="message-time">AI Assistant • Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <input type="text" class="chat-input" id="chatInput" placeholder="Ask in your local language...">
+                        <button class="btn btn-primary" id="sendBtn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="btn-group" style="margin-top: 1rem;">
+                        <label class="btn btn-secondary">
+                            <i class="fas fa-camera"></i>
+                            Upload Image
+                            <input type="file" accept="image/*" style="display: none;" id="imageUpload">
+                        </label>
+                        <button class="btn btn-secondary" id="diagnoseBtn">
+                            <i class="fas fa-stethoscope"></i>
+                            AI Diagnose
+                        </button>
+                        <button class="btn btn-secondary" id="reportBtn">
+                            <i class="fas fa-chart-bar"></i>
+                            Generate Report
+                        </button>
+                    </div>
+                    
+                    <div id="imagePreview"></div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Metrics Dashboard -->
+                <div class="card">
+                    <h3 class="card-title">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Real-time Metrics
+                    </h3>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card" id="phMetric">
+                            <div class="metric-icon">🧪</div>
+                            <div class="metric-value">—</div>
+                            <div class="metric-label">pH Level</div>
+                        </div>
+                        <div class="metric-card" id="moistureMetric">
+                            <div class="metric-icon">💧</div>
+                            <div class="metric-value">—</div>
+                            <div class="metric-label">Moisture</div>
+                        </div>
+                        <div class="metric-card" id="nutrientMetric">
+                            <div class="metric-icon">🌿</div>
+                            <div class="metric-value">N/A</div>
+                            <div class="metric-label">Nutrients</div>
+                        </div>
+                        <div class="metric-card" id="weatherMetric">
+                            <div class="metric-icon">🌤️</div>
+                            <div class="metric-value">—</div>
+                            <div class="metric-label">Weather</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: #64748b; margin-top: 1rem;">
+                        <span>📍 </span></div></div></div></div></div></body></html>
