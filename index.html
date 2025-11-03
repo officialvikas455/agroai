@@ -1,5 +1,101 @@
-
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://127.0.0.1:3000/agri2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./Jharkhand Agri-AI - Farmer Assistant_files/___vscode_livepreview_injected_script"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Agri-AI - Farmer Assistant</title>
+    <link href="./Jharkhand Agri-AI - Farmer Assistant_files/all.min.css" rel="stylesheet">
+    <link href="./Jharkhand Agri-AI - Farmer Assistant_files/css2" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --warning: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(5,150,105,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245,158,11,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(16,185,129,0.08) 0%, transparent 50%);
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            33% { transform: scale(1.1) rotate(1deg); opacity: 1; }
+            66% { transform: scale(0.95) rotate(-1deg); opacity: 0.9; }
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            color: var(--primary);
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+            font-size: clamp(1rem, 2vw, 2rem);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.1; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient);
+            border-radius: var(--border-radius);
             color: white;
             padding: 2rem;
             margin-bottom: 2rem;
